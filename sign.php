@@ -1,3 +1,34 @@
+<?php
+   
+   if($_SERVER['REQUEST_METHOD']=='POST'){
+    include 'connect.php';
+     $username=$_POST['username'];
+     $password=$_POST['password'];
+
+    
+    
+    $sql="Select * from `registration` where username='$username'";
+
+    $result=mysqli_query($con,$sql);
+    if($result){
+        $num=mysqli_num_rows($result);
+        if($num>0){
+            echo "user already exist";
+        }else{
+            $sql="insert into `registration`(username,password) values('$username','$password')";
+
+            $result=mysqli_query($con,$sql);
+            if($result){
+                echo "signup successful";
+            }else{
+                die(mysqli_error($con));
+            }
+        
+        }
+    }
+   }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +40,15 @@
 <body>
 
    <div class="container">
-   <form>
+   <form action="sign.php" method="post">
    <h1>Sign up</h1>
     <div class="group-1">
     <label for="e-mail">  Name</label>
-    <input type="email" id="email" placeholder="enter your user name">
+    <input type="text"  placeholder="enter your username" name="username">
     </div>
     <div class="group-2">
-    <label for="e-mail">Password</label>
-    <input type="password" id="password" placeholder="enter your password">
+    <label for="password">Password</label>
+    <input type="password"  placeholder="enter your password" name="password">
     </div>
      <div class="group-3">
         <button class="btn">SUBMIT</button>
