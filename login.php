@@ -36,8 +36,19 @@
 <body>
 <?php 
     if($login){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success </strong>You are successfully logged in.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+      }
+
+
+?>
+
+<?php 
+    if($invalid){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>oh no sorry! </strong>user already exits.
+      <strong>Error </strong>Invalid credentials.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
       }
