@@ -76,7 +76,7 @@
     <input type="password"  placeholder="enter your password" name="password">
     </div>
      <div class="group-3">
-        <button class="btn">SUBMIT</button>
+        <button class="btn">Sign Up</button>
      </div>
    </form>
    </div>
