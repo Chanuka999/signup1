@@ -1,5 +1,8 @@
 <?php
-   
+   $succes=0;
+   $user=0;
+
+
    if($_SERVER['REQUEST_METHOD']=='POST'){
     include 'connect.php';
      $username=$_POST['username'];
@@ -13,13 +16,15 @@
     if($result){
         $num=mysqli_num_rows($result);
         if($num>0){
-            echo "user already exist";
+           // echo "user already exist";
+           $user=1;
         }else{
             $sql="insert into `registration`(username,password) values('$username','$password')";
 
             $result=mysqli_query($con,$sql);
             if($result){
-                echo "signup successful";
+                //echo "signup successful";
+                $succes=1;
             }else{
                 die(mysqli_error($con));
             }
