@@ -1,5 +1,5 @@
 <?php
-   $succes=0;
+   $success=0;
    $user=0;
 
 
@@ -24,7 +24,7 @@
             $result=mysqli_query($con,$sql);
             if($result){
                 //echo "signup successful";
-                $succes=1;
+                $success=1;
             }else{
                 die(mysqli_error($con));
             }
@@ -41,9 +41,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 
+<?php  
+  if($user){
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>oh no sorry! </strong>user already exits.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+  }
+
+?>
+
+<?php  
+  if($success){
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>success </strong>You are succesfulkly signup.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+  }
+
+?>
    <div class="container">
    <form action="sign.php" method="post">
    <h1>Sign up</h1>
