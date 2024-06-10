@@ -1,13 +1,13 @@
 <?php
    $success=0;
    $user=0;
-
+   $invalid=0;
 
    if($_SERVER['REQUEST_METHOD']=='POST'){
     include 'connect.php';
      $username=$_POST['username'];
      $password=$_POST['password'];
-
+     $cpassword=$_POST['cpassword'];
     
     
     $sql="Select * from `registration` where username='$username'";
@@ -19,6 +19,7 @@
            // echo "user already exist";
            $user=1;
         }else{
+          if($password===$cpassword){
             $sql="insert into `registration`(username,password) values('$username','$password')";
 
             $result=mysqli_query($con,$sql);
@@ -26,8 +27,9 @@
                 //echo "signup successful";
                 $success=1;
                 header('location:login.php');
-            }else{
-                die(mysqli_error($con));
+            }
+          }else{
+              $invalid=1;
             }
         
         }
@@ -57,6 +59,15 @@
 ?>
 
 <?php  
+  if($invalid){
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>oh no sorry! </strong>password did not match.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+  }
+
+?>
+<?php  
   if($success){
     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>success </strong>You are succesfulkly signup.
@@ -75,6 +86,10 @@
     <div class="group-2">
     <label for="password">Password</label>
     <input type="password"  placeholder="enter your password" name="password">
+    </div>
+    <div class="group-2">
+    <label for="password">Confirm Password</label>
+    <input type="password"  placeholder="confirm password" name="cpassword">
     </div>
      <div class="group-3">
         <button class="btn">Sign Up</button>
