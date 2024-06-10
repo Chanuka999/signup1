@@ -15,6 +15,9 @@
         $num=mysqli_num_rows($result);
         if($num>0){
          $login=1;
+         session_start();
+         $_SESSION['username']=$username;
+         header('location:home.php');
         }else{
            $invalid=1;
         
