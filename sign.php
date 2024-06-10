@@ -25,6 +25,7 @@
             if($result){
                 //echo "signup successful";
                 $success=1;
+                header('location:login.php');
             }else{
                 die(mysqli_error($con));
             }
