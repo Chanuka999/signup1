@@ -12,6 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome page</title>
     <style>
+.body{
+   
+}
+
 .hello{
     text-align: center;
     margin-top: 25px;
@@ -33,7 +37,7 @@
     ?>
 </h1>
 
- <div class="container">
+ <div class="container  background: url('./images/nature1.jpg')">
     <a href="logout.php"><button class="btn">Log out</button></a>
  </div>
 </body>
