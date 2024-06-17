@@ -12,9 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome page</title>
     <style>
-.body{
-   
-}
+
 
 .hello{
     text-align: center;
@@ -32,13 +30,19 @@
     </style>
 </head>
 <body>
+    <div style="background-image:url(images/nature2.jpg);background-repeat:no-repeat; width:100%; height:100%">
 <h1 class="hello">Welcome
     <?php echo $_SESSION['username'];
     ?>
 </h1>
 
- <div class="container  background: url('./images/nature1.jpg')">
+
+
+
+
+ <div class="footer" >
     <a href="logout.php"><button class="btn">Log out</button></a>
+ </div>
  </div>
 </body>
 </html>
