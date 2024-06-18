@@ -62,8 +62,8 @@ button{
     left: -10px;
     width: 255px;
     height: 650px;
-  /*  background-size: 225px;*/
-    background: url(images/nature1.jpg);
+  
+  
     background-repeat: no-repeat;
     z-index: 100;
 }
